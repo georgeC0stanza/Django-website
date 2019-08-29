@@ -1,0 +1,13 @@
+APScheduler
+Django
+djangorestframework
+psycopg2
+rq
+requests
+
+
+whitenoise
+django
+gunicorn
+django-heroku
+
