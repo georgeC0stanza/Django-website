@@ -1,0 +1,57 @@
+
+<div id="header" style="
+  font-size: 14pt;
+  background: #417690;
+  color: #ffc;
+  display: flex;
+  padding: 16px;
+  font-weight: bold;
+">
+    <h1>
+        Title
+    </h1>
+</div>
+
+{% block content %}
+
+{% if form.errors %}
+  <h1 style="text-align: center;">Your username and password didn't match. Please try again.</h1>
+{% endif %}
+
+{% if next %}
+  {% if user.is_authenticated %}
+    <h1 style="text-align: center;">Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</h1>
+  {% else %}
+    <h1 style="text-align: center;">Sign in</h1>
+  {% endif %}
+{% endif %}
+
+<div style="margin-left: auto;
+  margin-right: auto;
+  width: 300px;">
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<table>
+
+<tr>
+  <td>{{ form.username.label_tag }}</td>
+  <td>{{ form.username }}</td>
+</tr>
+
+<tr>
+  <td>{{ form.password.label_tag }}</td>
+  <td>{{ form.password }}</td>
+</tr>
+</table>
+
+<input type="submit" value="login" />
+<input type="hidden" name="next" value="{{ next }}" />
+</form>
+</div>
+
+{# Assumes you setup the password_reset view in your URLconf #}
+{% comment %}
+<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+{% endcomment %}
+{% endblock %}
