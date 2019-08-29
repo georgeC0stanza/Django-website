@@ -1,0 +1,121 @@
+body {
+    font-size: 14pt;
+    background-color: white;
+    color: #333;
+}
+
+#headerRight {
+    margin-left:auto; margin-right:0;
+}
+
+#header .button {
+    font-family: "Roboto","Lucida Grande",Verdana,Arial,sans-serif;
+    margin: 3px;
+    padding: 3px;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    text-align: right;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    text-decoration: none;
+    border-bottom-color: #79aec8;
+}
+
+#header a {
+    text-decoration: none;
+    text-decoration: none;
+    border-bottom-color: #79aec8;
+    color: #000000;
+}
+
+#headerHeading {
+    color: #ffc;
+    font-weight: bold;
+}
+
+#headerHeading h1 {
+    margin: 0px;
+    text-shadow: 2px 2px #000;
+}
+
+table {
+    font-family: Georgia;
+    border: 1px solid rgb(123, 154, 170); 
+    background-color: white;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 12pt;
+
+    table-layout: fixed; 
+    width: 100%
+}
+
+tr:nth-child(even){
+    background-color: #f2f2f2;
+}
+
+td, th {
+    padding: 8px;
+}
+
+td:first-child { 
+    width: 33%;
+}
+
+table .button {
+    border: none;
+    color: Black;
+    font-size: 16px;
+    cursor: pointer;
+    width:100%;
+    padding: -10px;
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #ddd;
+}
+
+tr:first-child td {
+    background-color: rgb(123, 154, 170);
+    color: #ffffff;
+    border: 1px solid rgb(123, 154, 170);
+    font-weight: bold;
+    text-shadow: 1px 1px rgb(50, 63, 71);
+}
+
+h1 {
+    font-weight: bold;
+}
+
+form {
+    margin-left: auto; 
+    margin-right: auto;
+    padding:6px;
+    border: 1px solid rgb(0, 90, 136); 
+    border-radius: 4px;
+    background-color: #e7e7e7;
+}
+
+select {
+    font-size: 16px;
+}
+
+form .button {
+    font-size: 16px;
+}
+
+#header {
+    background: #417690;
+    color: #ffc;
+    display: flex;
+    padding:16px;
+}
+
+#client_filter_toggle {
+    color: #204557;
+}

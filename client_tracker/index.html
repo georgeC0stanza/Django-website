@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="{% static 'client_tracker/style.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'client_tracker/images/favicon.ico' %}"/>
+    <script>
+        var csrftoken = '{{ csrf_token }}';
+    </script>
+    <script type="text/javascript" src="{% static 'client_tracker/script.js' %}"></script>
+    <title>Title</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+        <div id="header">
+            <div id="headerLeft">
+                <div id="headerHeading">
+                    <h1>Review Lift Tools</h1>
+                </div>
+                <div>
+                    <input class="button" type="button" onclick="viewAll()" value="All">
+                    <input class="button" type="button" onclick="filterReviewVelocity()" value="Review Velocity">
+                    <input class="button" type="button" onclick="getBusinessScoreDropped()" value="Declining Ratings">
+                    <input class="button" type="button" onclick="addClients()" value="Add New Clients">
+                    &nbsp;&nbsp;
+                    <input class="button" type="button" onclick="isClientToggle()" value="Client Filter Toggle" id="client_filter_toggle">
+                </div>
+            </div>
+            <div id="headerRight">
+                <button class="button" type="button"><a href="{% url 'noodles'%}">{{ user.get_username }}</a></button>
+                <button class="button" type="button"><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></button>
+            </div>
+        </div>
+        <br/>
+        <form id="submit_place_ids" action="sumbmitNewPlaceIDs/" method="post" target="hidden-form">
+            <div id="results" ></div>
+            <div id="details"></div>
+            <div id="buttons"></div>
+            <div id="businessCompetitors"></div>
+            <div id="editCompetitor">
+                <div id="addCompetitor"></div>
+                <div id="removeCompetitor"></div>
+            </div>
+            <div id="listCompetitor" style="display: none;">
+                <h4>Select competitor:</h4>
+                <select id="selectCompetitor"></select>
+                <input id="editCompetitorSubmits" class="button" type="button" value="Submit">
+            </div>
+        </form>
+        <br/>
+        <br/>
+        <IFRAME style="display:none" name="hidden-form"></IFRAME>
+
+    {% else %}
+        <div id="header">
+            <h1>
+                <Title></Title>
+            </h1>
+        </div>
+        <h1 style="text-align: center;">You are not logged in.</h1>
+        <div style="
+            margin: auto;
+            width: 65px;
+            background: #417690;
+            border: 1px solid #ffc;
+            padding: 10px;
+            text-align: center;
+        ">
+            <a style="
+                text-align: center;
+                margin:0 auto;
+                color: #ffc;
+                font-weight: bold;
+                font-size: 25px;
+                " href="{% url 'login'%}?next={{request.path}}">Login</a>
+        </div>
+    {% endif %}
+    <br/>
+
+</body>
+</html>
